@@ -1,0 +1,49 @@
+﻿<h2>CalcTextBoxes</h2>
+
+a<input type="text" id="A"><br />
+op<input type="text" id="Op" value=""><br />
+b<input type="text" id="B" value=""><br />
+=<input type="text" id="Res" value=""><br />
+<input type="button" id="Btn" onclick="res()" value="Calc"><br />
+
+@section scripts
+{
+    <script>
+        function res() {
+            var a = parseInt(document.getElementById("A").value);
+            var b = parseInt(document.getElementById("B").value);
+            var op = document.getElementById("Op").value;
+            calcN(a, b, op);
+        }
+
+        function showRes(res) {
+            document.getElementById("Res").value = res;
+        }
+
+        function calcN(a, b, op) {
+            var params = { "num1": a, "num2": b, "opr": op };
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "/api/values/");
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showRes(JSON.parse(xmlhttp.response).res);
+                }
+            }
+            xmlhttp.send(JSON.stringify(params));
+        }
+//    function calcN(a, b, op)
+//    {
+//        var params = { "num1": a, "num2": b, "opr": op };
+//        $.ajax({
+//            url: '/api/values/',
+//            type: 'POST',
+//            data: JSON.stringify(params),
+//            contentType: "application/json;charset=utf-8",
+//            success: function (data) {
+//                $('#Res').val(data.res);
+//            }
+//        });
+//    }
+    </script>
+}

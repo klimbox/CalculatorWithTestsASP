@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "CalcButtons";
+}
+
+<h2>CalcButtons</h2>
+
+<style>
+    input[type="button"] {
+        height: 30px;
+        width: 30px;
+    }
+
+    #calcContainer {
+        margin: 100px;
+    }
+</style>
+
+<div id="calcContainer">
+    <input type="text" id="answer" disabled>
+    <br>
+    <input type="button" id="cancel" value="C">
+    <input class="operation" type="button" id="op_divide" value="/">
+    <input class="operation" type="button" id="op_multiply" value="*">
+    <input class="operation" type="button" id="op_minus" value="-">
+    <br>
+    <input class="digit" type="button" id="num7" value="7">
+    <input class="digit" type="button" id="num8" value="8">
+    <input class="digit" type="button" id="num9" value="9">
+    <input class="operation" type="button" id="op_plus" value="+">
+    <br>
+    <input class="digit" type="button" id="num4" value="4">
+    <input class="digit" type="button" id="num5" value="5">
+    <input class="digit" type="button" id="num6" value="6">
+    <input type="button" id="calculate" value="=">
+    <br>
+    <input class="digit" type="button" id="num1" value="1">
+    <input class="digit" type="button" id="num2" value="2">
+    <input class="digit" type="button" id="num3" value="3">
+    <input class="digit" type="button" id="num0" value="0">
+    <br>
+</div>
+
+@section scripts{
+    <script>
+        var answer;
+        var cancel;
+        var calculate;
+
+        var num1 = 0;
+        var operation = '+';
+        var num2 = 0;
+
+        function init() {
+            answer = document.getElementById('answer');
+            cancel = document.getElementById('cancel');
+            calculate = document.getElementById('calculate');
+        }
+
+        function addDigitClickListeners() {
+            var btns = document.getElementsByClassName('digit');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener('click', digitClickHandler);
+            }
+        }
+        function digitClickHandler(e) {
+            answer.value = answer.value + e.target.value;
+        }
+
+        function addOperationClickListeners() {
+            var btns = document.getElementsByClassName('operation');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener('click', operationClickHandler);
+            }
+        }
+        function operationClickHandler(e) {
+            num1 = parseInt(answer.value);
+            operation = e.target.value;
+            answer.value = '';
+        }
+
+        function addCancelClickListener() {
+            cancel.addEventListener('click',
+                function() {
+                    answer.value = "";
+                    operation = "+";
+                    num1 = 0;
+                });
+        }
+
+        function addCalculateClickListener() {
+            calculate.addEventListener('click',
+                function() {
+                    num2 = parseInt(answer.value);
+                    requestAnswer();
+                });
+        }
+
+        function showRes(res) {
+            answer.value = res;
+        }
+
+        function requestAnswer() {
+            var params = { "num1": num1, "num2": num2, "opr": operation };
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "/api/values/");
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showRes(JSON.parse(xmlhttp.response).res);
+                }
+            }
+            xmlhttp.send(JSON.stringify(params));
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            init();
+            addDigitClickListeners();
+            addOperationClickListeners();
+            addCancelClickListener();
+            addCalculateClickListener();
+        }, false);
+    </script>
+}
