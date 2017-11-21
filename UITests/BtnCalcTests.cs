@@ -17,6 +17,7 @@ namespace SeleniumTest
         [ClassInitialize]
         public static void Setup(TestContext tc)
         {
+            // для запуска IISexpress сервиса приложения
             Server = new Process();
             Server.StartInfo.FileName = @"C:\Program Files\IIS Express\iisexpress.exe";
             //Debug.WriteLine(Directory.GetCurrentDirectory());
@@ -26,7 +27,7 @@ namespace SeleniumTest
             dir = dir.Substring(0, dir.Length - 18) + @"\Calcs";
 
             Server.StartInfo.Arguments = @"/path:" + dir + " /port:63818";
-            Server.Start();
+            Server.Start(); 
 
             web = new ChromeDriver();
 
