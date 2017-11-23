@@ -19,14 +19,14 @@ namespace BDDTests
         {
             // для запуска IISexpress сервиса приложения
             Server = new Process();
-            Server.StartInfo.FileName = @"C:\Program Files\IIS Express\iisexpress.exe";
+            Server.StartInfo.FileName = @"C:\Program Files\IIS Express\iisexpress.exe"; // change path
             //Debug.WriteLine(Directory.GetCurrentDirectory());
             //Server.StartInfo.Arguments = @"/path:C:\Users\slyly\Desktop\Calcs\Calcs /port:63818";
             // определение локальной директории проекта с веб-приложением можно/нужно переделать?
             string dir = Directory.GetCurrentDirectory();
             dir = dir.Substring(0, dir.Length - 18) + @"\Calcs";
 
-            Server.StartInfo.Arguments = @"/path:C:\Users\slyly\Desktop\Calcs\Calcs /port:63818";
+            Server.StartInfo.Arguments = @"/path:C:\Users\slyly\Desktop\Calcs\Calcs /port:63818"; // change path
             Server.Start();
 
             web = new ChromeDriver();
