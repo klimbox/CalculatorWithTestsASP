@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calcs", "Calcs\Calcs.csproj", "{39562A90-5192-4F1F-B0CC-8A3E82434FA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcTest", "CalcTest\CalcTest.csproj", "{6D905C99-83DE-40EA-8A08-9EC814DE3CA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests", "UITests\UITests.csproj", "{CA68EE69-D6D0-4D99-813D-7C9CD33183EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDDTests", "BDDTests\BDDTests.csproj", "{54A1EFBE-4036-4A92-B576-48C83007AA8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CA68EE69-D6D0-4D99-813D-7C9CD33183EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA68EE69-D6D0-4D99-813D-7C9CD33183EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA68EE69-D6D0-4D99-813D-7C9CD33183EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54A1EFBE-4036-4A92-B576-48C83007AA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54A1EFBE-4036-4A92-B576-48C83007AA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54A1EFBE-4036-4A92-B576-48C83007AA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54A1EFBE-4036-4A92-B576-48C83007AA8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
