@@ -3,6 +3,16 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
+@Buttons
+Scenario Outline: All buttons can be pressed
+	Given I press <button>
+	Then i Expect <value> on screen
+	
+	Examples:
+    | button   | value |
+    |  num1    |   1   |
+    |  num2    |   2   |
+
 @Sum
 Scenario: X + Y
 	Given Enter first number 1
@@ -17,7 +27,7 @@ Scenario: X - Y
 	Given Press Sub
 	Given Enter second number 2
 	When Press = 
-	Then Expect 3 on screen
+	Then Expect -1 on screen
 
 @Mul
 Scenario: X mul Y

@@ -26,7 +26,7 @@ namespace BDDTests
             string dir = Directory.GetCurrentDirectory();
             dir = dir.Substring(0, dir.Length - 18) + @"\Calcs";
 
-            Server.StartInfo.Arguments = @"/path:C:\Users\slyly\Desktop\Calcs\Calcs /port:63818"; // change path
+            Server.StartInfo.Arguments = @"/path:C:\Users\Student\Desktop\24.11\CalculatorWithTestsASP\Calcs /port:63818"; // change path
             Server.Start();
 
             web = new ChromeDriver();
@@ -95,6 +95,19 @@ namespace BDDTests
         public void GivenPressDiv()
         {
             web.FindElement(By.Id("op_divide")).Click();
+        }
+
+        [Then(@"i Expect (.*) on screen")]
+        public void ThenIExpectOnScreen(string exp)
+        {
+            string res = web.FindElement(By.Id("answer")).GetAttribute("value");
+            Assert.AreEqual(exp, res);
+        }
+
+        [Given(@"I press (.*)")]
+        public void GivenIPress(string num)
+        {
+            web.FindElement(By.Id(num)).Click();
         }
 
     }

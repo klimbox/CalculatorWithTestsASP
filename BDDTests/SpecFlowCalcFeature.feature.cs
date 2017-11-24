@@ -63,89 +63,126 @@ namespace BDDTests
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void AllButtonsCanBePressed(string button, string value, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Buttons"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All buttons can be pressed", @__tags);
+#line 7
+this.ScenarioSetup(scenarioInfo);
+#line 8
+ testRunner.Given(string.Format("I press {0}", button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.Then(string.Format("i Expect {0} on screen", value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("All buttons can be pressed, num1", new string[] {
+                "Buttons"}, SourceLine=12)]
+        public virtual void AllButtonsCanBePressed_Num1()
+        {
+#line 7
+this.AllButtonsCanBePressed("num1", "1", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("All buttons can be pressed, num2", new string[] {
+                "Buttons"}, SourceLine=12)]
+        public virtual void AllButtonsCanBePressed_Num2()
+        {
+#line 7
+this.AllButtonsCanBePressed("num2", "2", ((string[])(null)));
+#line hidden
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("X + Y", new string[] {
-                "Sum"}, SourceLine=6)]
+                "Sum"}, SourceLine=16)]
         public virtual void XY()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("X + Y", new string[] {
                         "Sum"});
-#line 7
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 18
  testRunner.Given("Enter first number 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 19
  testRunner.Given("Press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
+#line 20
  testRunner.Given("Enter second number 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
+#line 21
  testRunner.When("Press =", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 22
  testRunner.Then("Expect 3 on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("X - Y", new string[] {
-                "Sub"}, SourceLine=14)]
+                "Sub"}, SourceLine=24)]
         public virtual void X_Y()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("X - Y", new string[] {
                         "Sub"});
-#line 15
+#line 25
 this.ScenarioSetup(scenarioInfo);
-#line 16
+#line 26
  testRunner.Given("Enter first number 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 27
  testRunner.Given("Press Sub", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
+#line 28
  testRunner.Given("Enter second number 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 19
+#line 29
  testRunner.When("Press =", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
- testRunner.Then("Expect 3 on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.Then("Expect -1 on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("X mul Y", new string[] {
-                "Mul"}, SourceLine=22)]
+                "Mul"}, SourceLine=32)]
         public virtual void XMulY()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("X mul Y", new string[] {
                         "Mul"});
-#line 23
+#line 33
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 34
  testRunner.Given("Enter first number 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
+#line 35
  testRunner.Given("Press mul", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 26
+#line 36
  testRunner.Given("Enter second number 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 37
  testRunner.When("Press =", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 28
+#line 38
  testRunner.Then("Expect 20 on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("X div Y", new string[] {
-                "Div"}, SourceLine=30)]
+                "Div"}, SourceLine=40)]
         public virtual void XDivY()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("X div Y", new string[] {
                         "Div"});
-#line 31
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 42
  testRunner.Given("Enter first number 6", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
+#line 43
  testRunner.Given("Press div", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 34
+#line 44
  testRunner.Given("Enter second number 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 35
+#line 45
  testRunner.When("Press =", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 36
+#line 46
  testRunner.Then("Expect 2 on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
